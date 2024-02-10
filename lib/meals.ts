@@ -6,7 +6,6 @@ import xss from 'xss'
 import { S3 } from '@aws-sdk/client-s3'
 
 import { Meal, MealDto } from './types'
-import { uploadImage } from './google-drive.backup'
 
 const s3 = new S3({
   region: 'eu-north-1',

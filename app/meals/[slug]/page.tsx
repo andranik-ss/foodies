@@ -9,6 +9,22 @@ type MealDetailsPageProps = {
   }
 }
 
+export async function generateMetadata({ params }: MealDetailsPageProps) {
+  const meal = getMeal(params?.slug || '')
+
+  if (!meal) {
+    return {
+      status: 404,
+      title: 'Not Found',
+    }
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  }
+}
+
 export default function MealDetailsPage({ params }: MealDetailsPageProps) {
   if (!params?.slug) {
     return notFound()
